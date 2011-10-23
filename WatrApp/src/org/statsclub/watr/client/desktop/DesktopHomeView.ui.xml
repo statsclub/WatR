@@ -1,7 +1,12 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
-	<g:HTML>		
-		Desktop Application		
-	</g:HTML>	
+	<g:DockLayoutPanel unit='PCT'>
+		<g:north size='20'>
+			<g:SimpleLayoutPanel ui:field="topLayout" />
+		</g:north>
+		<g:center>
+			<g:SimpleLayoutPanel ui:field="centerLayout" />
+		</g:center>
+	</g:DockLayoutPanel>
 </ui:UiBinder> 

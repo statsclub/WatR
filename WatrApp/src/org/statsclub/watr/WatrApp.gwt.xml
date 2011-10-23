@@ -1,46 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module rename-to='watrapp'>
-  <!-- Inherit the core Web Toolkit stuff.                        -->
-  <inherits name='com.google.gwt.activity.Activity'/>
-  <inherits name='com.google.gwt.place.Place'/>
-  <inherits name='com.google.gwt.user.User'/>
-  <inherits name='com.google.gwt.user.theme.clean.Clean'/>
-  <inherits name='com.google.gwt.editor.Editor'/>
-  <inherits name='org.statsclub.watr.FormFactor'/>
-  <inherits name='com.google.web.bindery.requestfactory.RequestFactory'/>
+	<!-- Inherit the core Web Toolkit stuff. -->
+	<inherits name='com.google.gwt.activity.Activity' />
+	<inherits name='com.google.gwt.place.Place' />
+	<inherits name='com.google.gwt.user.User' />
+	<inherits name='com.google.gwt.user.theme.clean.Clean' />
+	<inherits name='com.google.gwt.editor.Editor' />
+	<inherits name='com.google.web.bindery.requestfactory.RequestFactory' />
+	<inherits name='org.statsclub.watr.FormFactor' />
+	<inherits name='com.allen_sauer.gwt.dnd.gwt-dnd' />
 
-  <!-- Use GWT's java.util.logging emulation -->
-  <inherits name="com.google.gwt.logging.Logging"/>
-  <!-- Turn off the popup log handler, which is on by default to make sure 
-       people are very aware that they are including the logging code -->
-  <set-property name="gwt.logging.popupHandler" value="DISABLED" />
-  
-  <inherits name="com.google.gwt.logging.Logging"/>
+	<!-- Use GWT's java.util.logging emulation -->
+	<inherits name="com.google.gwt.logging.Logging" />
+	<!-- Turn off the popup log handler, which is on by default to make sure 
+		people are very aware that they are including the logging code -->
+	<set-property name="gwt.logging.popupHandler" value="DISABLED" />
 
-  <!-- Specify the app entry point class.                         -->
-  <entry-point class='org.statsclub.watr.client.WatrApp'/>
+	<inherits name="com.google.gwt.logging.Logging" />
 
-  <!-- Use ClientFactoryImpl by default -->
-  <replace-with class="org.statsclub.watr.client.ClientFactoryImpl">
-    <when-type-is class="org.statsclub.watr.client.ClientFactory"/>
-  </replace-with>
+	<!-- Specify the app entry point class. -->
+	<entry-point class='org.statsclub.watr.client.WatrApp' />
 
-  <!-- Use ClientFactoryImplMobile for mobile form factor. -->
-  <replace-with class="org.statsclub.watr.client.ClientFactoryImplMobile">
-    <when-type-is class="org.statsclub.watr.client.ClientFactory"/>
-    <when-property-is name="formfactor" value="mobile"/>
-  </replace-with>
+	<!-- Use ClientFactoryImpl by default -->
+	<replace-with class="org.statsclub.watr.client.ClientFactoryImpl">
+		<when-type-is class="org.statsclub.watr.client.ClientFactory" />
+	</replace-with>
 
-  <!-- Use ClientFactoryImplTablet for tablet form factor. -->
-  <replace-with class="org.statsclub.watr.client.ClientFactoryImplTablet">
-    <when-type-is class="org.statsclub.watr.client.ClientFactory"/>
-    <when-property-is name="formfactor" value="tablet"/>
-  </replace-with>
+	<!-- Use ClientFactoryImplMobile for mobile form factor. -->
+	<replace-with class="org.statsclub.watr.client.ClientFactoryImplMobile">
+		<when-type-is class="org.statsclub.watr.client.ClientFactory" />
+		<when-property-is name="formfactor" value="mobile" />
+	</replace-with>
 
-  <!-- Specify the paths for translatable code                    -->
-  <source path='client'/>
-  <source path='presenter'/>
-  <source path='event'/>
-  <source path='place'/>
-  <source path='activity'/>
+	<!-- Use ClientFactoryImplTablet for tablet form factor. -->
+	<replace-with class="org.statsclub.watr.client.ClientFactoryImplTablet">
+		<when-type-is class="org.statsclub.watr.client.ClientFactory" />
+		<when-property-is name="formfactor" value="tablet" />
+	</replace-with>
+
+	<!-- Specify the paths for translatable code -->
+	<source path='client' />
+	<source path='presenter' />
+	<source path='event' />
+	<source path='place' />
+	<source path='activity' />
 </module>

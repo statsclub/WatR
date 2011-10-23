@@ -3,11 +3,11 @@
 <!-- Defines the formfactor property and its provider function. -->
 <module>
 
-  <!-- Determine if we are in a mobile browser. -->
-  <define-property name="formfactor" values="desktop,tablet,mobile"/>
-  <collapse-property name="formfactor" values="*"/>
+	<!-- Determine if we are in a mobile browser. -->
+	<define-property name="formfactor" values="desktop,tablet,mobile" />
+	<collapse-property name="formfactor" values="*" />
 
-  <property-provider name="formfactor">
+	<property-provider name="formfactor">
   <![CDATA[
       // Look for the formfactor as a url argument.
       var args = location.search;
@@ -45,6 +45,6 @@
       // Everything else is a desktop.
       return "desktop";
   ]]>
-  </property-provider>
+	</property-provider>
 
 </module>
