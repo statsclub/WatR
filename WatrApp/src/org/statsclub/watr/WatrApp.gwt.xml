@@ -21,27 +21,14 @@
 	<!-- Specify the app entry point class. -->
 	<entry-point class='org.statsclub.watr.client.WatrApp' />
 
-	<!-- Use ClientFactoryImpl by default -->
-	<replace-with class="org.statsclub.watr.client.ClientFactoryImpl">
-		<when-type-is class="org.statsclub.watr.client.ClientFactory" />
-	</replace-with>
-
-	<!-- Use ClientFactoryImplMobile for mobile form factor. -->
+ 	<!-- Testing Mobile on Desktop -->
 	<replace-with class="org.statsclub.watr.client.ClientFactoryImplMobile">
 		<when-type-is class="org.statsclub.watr.client.ClientFactory" />
-		<when-property-is name="formfactor" value="mobile" />
 	</replace-with>
-
-	<!-- Use ClientFactoryImplTablet for tablet form factor. -->
-	<replace-with class="org.statsclub.watr.client.ClientFactoryImplTablet">
-		<when-type-is class="org.statsclub.watr.client.ClientFactory" />
-		<when-property-is name="formfactor" value="tablet" />
-	</replace-with>
-
+	
 	<!-- Specify the paths for translatable code -->
 	<source path='client' />
 	<source path='presenter' />
 	<source path='event' />
-	<source path='place' />
-	<source path='activity' />
+	<source path='model' />
 </module>
