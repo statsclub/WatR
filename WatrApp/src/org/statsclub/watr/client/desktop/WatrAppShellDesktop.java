@@ -3,12 +3,13 @@ package org.statsclub.watr.client.desktop;
 import org.statsclub.watr.client.WatrAppShell;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.http.client.UrlBuilder;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.ResizeComposite;
 import com.google.gwt.user.client.ui.SimpleLayoutPanel;
 import com.google.gwt.user.client.ui.Widget;
-import com.google.web.bindery.event.shared.EventBus;
 
 public class WatrAppShellDesktop extends ResizeComposite implements WatrAppShell {
 
@@ -18,9 +19,9 @@ public class WatrAppShellDesktop extends ResizeComposite implements WatrAppShell
 	}
 
 	@UiField
-	SimpleLayoutPanel contentContainer;
+	SimpleLayoutPanel contentPanel;
 
 	public WatrAppShellDesktop() {
-		initWidget(uiBinder.createAndBindUi(this));
+		initWidget(uiBinder.createAndBindUi(this));				
 	}
 }

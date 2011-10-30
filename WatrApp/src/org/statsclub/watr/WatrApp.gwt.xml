@@ -8,11 +8,10 @@
 	<inherits name='com.google.gwt.editor.Editor' />
 	<inherits name='com.google.web.bindery.requestfactory.RequestFactory' />
 	<inherits name='org.statsclub.watr.FormFactor' />
-	<inherits name='com.allen_sauer.gwt.dnd.gwt-dnd' />
 
 	<!-- Use GWT's java.util.logging emulation -->
 	<inherits name="com.google.gwt.logging.Logging" />
-	<!-- Turn off the popup log handler, which is on by default to make sure 
+	<!-- Turn off the popup log handler, which is on by default to make sure 0
 		people are very aware that they are including the logging code -->
 	<set-property name="gwt.logging.popupHandler" value="DISABLED" />
 
@@ -21,8 +20,8 @@
 	<!-- Specify the app entry point class. -->
 	<entry-point class='org.statsclub.watr.client.WatrApp' />
 
- 	<!-- Testing Mobile on Desktop -->
-	<replace-with class="org.statsclub.watr.client.ClientFactoryImplMobile">
+	<!-- Use ClientFactoryImpl by default -->
+	<replace-with class="org.statsclub.watr.client.ClientFactoryImplTablet">
 		<when-type-is class="org.statsclub.watr.client.ClientFactory" />
 	</replace-with>
 	

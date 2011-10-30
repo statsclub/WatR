@@ -1,5 +1,25 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
-	<g:DeckLayoutPanel ui:field="contentContainer" />
+	<g:TabLayoutPanel ui:field="tabPanel" barUnit='EM'
+		barHeight='3'>
+		<g:tab>
+			<g:customHeader size='7'>
+				<g:Label>Data</g:Label>
+			</g:customHeader>
+			<g:SimpleLayoutPanel ui:field="dataPanel" />
+		</g:tab>
+		<g:tab>
+			<g:customHeader size='7'>
+				<g:Label>Functions</g:Label>
+			</g:customHeader>
+			<g:SimpleLayoutPanel ui:field="functionPanel" />
+		</g:tab>
+		<g:tab>
+			<g:customHeader size='7'>
+				<g:Label>Output</g:Label>
+			</g:customHeader>
+			<g:SimpleLayoutPanel ui:field="outputPanel" />
+		</g:tab>
+	</g:TabLayoutPanel>
 </ui:UiBinder> 
