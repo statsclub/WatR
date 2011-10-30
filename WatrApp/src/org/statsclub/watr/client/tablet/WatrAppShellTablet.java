@@ -15,12 +15,9 @@ public class WatrAppShellTablet extends ResizeComposite implements WatrAppShell 
 	}
 
 	private static WatrAppShellTabletUiBinder uiBinder = GWT.create(WatrAppShellTabletUiBinder.class);
-
-	/**
-	 * The container that holds content.
-	 */
+	
 	@UiField
-	SimpleLayoutPanel contentContainer;
+	SimpleLayoutPanel outputPanel;
 
 	public WatrAppShellTablet() {
 		// Initialize this widget.
