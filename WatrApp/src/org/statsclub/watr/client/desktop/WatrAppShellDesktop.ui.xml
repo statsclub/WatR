@@ -1,6 +1,12 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
-	<g:SimpleLayoutPanel ui:field="contentPanel">
-	</g:SimpleLayoutPanel>
+	<g:DockLayoutPanel>
+		<g:north size="30">
+			<g:SimpleLayoutPanel ui:field="menuPanel"/>
+		</g:north>
+		<g:center>
+			<g:SimpleLayoutPanel ui:field="contentPanel"/>
+		</g:center>
+	</g:DockLayoutPanel>
 </ui:UiBinder> 
