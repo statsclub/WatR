@@ -10,6 +10,7 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.cellview.client.CellList;
 import com.google.gwt.user.cellview.client.CellList.Style;
+import com.google.gwt.user.client.ui.HasOneWidget;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.ResizeComposite;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
@@ -34,19 +35,55 @@ public class WatrAppShellMobile extends ResizeComposite implements WatrAppShell 
 	TabLayoutPanel tabPanel;
 
 	@UiField
+	SimpleLayoutPanel projectPanel;
+
+	@UiField
 	SimpleLayoutPanel dataPanel;
 
 	@UiField
-	SimpleLayoutPanel functionPanel;
+	SimpleLayoutPanel modelPanel;
+
+	@UiField
+	SimpleLayoutPanel graphPanel;
+
+	@UiField
+	SimpleLayoutPanel tablePanel;
 
 	@UiField
 	SimpleLayoutPanel outputPanel;
 
 	public WatrAppShellMobile() {
 		initWidget(uiBinder.createAndBindUi(this));
-		initDataPanel();
-		initFunctionPanel();
+		initInputPanel("project", projectPanel, dataPanel);
+		initInputPanel("data", dataPanel, modelPanel);
+		initInputPanel("model", modelPanel, graphPanel);
+		initInputPanel("graph", graphPanel, outputPanel);
+		initInputPanel("table", tablePanel, outputPanel);
 		initOutputPanel();
+	}
+
+	private void initInputPanel(String name, HasOneWidget inputPanel, final Widget nextPanel) {
+		CellList<String> cellList = new CellList<String>(new TextCell(), GWT.<DataCellListResources> create(DataCellListResources.class));
+		inputPanel.setWidget(cellList);
+
+		final ListDataProvider<String> dataProvider = new ListDataProvider<String>();
+		dataProvider.addDataDisplay(cellList);
+
+		final SingleSelectionModel<String> selectionModel = new SingleSelectionModel<String>();
+		cellList.setSelectionModel(selectionModel);
+		selectionModel.addSelectionChangeHandler(new SelectionChangeEvent.Handler() {
+			public void onSelectionChange(SelectionChangeEvent event) {
+				String selected = selectionModel.getSelectedObject();
+				if (selected != null) {
+					tabPanel.selectTab(nextPanel);
+				}
+			}
+		});
+
+		List<String> dataList = dataProvider.getList();
+		for (int i = 10; i < 20; i++) {
+			dataList.add(name + i);
+		}
 	}
 
 	private void initOutputPanel() {
@@ -55,54 +92,6 @@ public class WatrAppShellMobile extends ResizeComposite implements WatrAppShell 
 		int height = RootLayoutPanel.get().getOffsetHeight();
 		image.setUrl("http://beta1.opencpu.org/R/call/graphics/plot/png?x=cars&!width=" + width + "&!height=" + height);
 		outputPanel.setWidget(image);
-	}	
-
-	private void initFunctionPanel() {	    
-		CellList<String> cellList = new CellList<String>(new TextCell(), GWT.<DataCellListResources> create(DataCellListResources.class));
-		functionPanel.setWidget(cellList);
-
-		final ListDataProvider<String> dataProvider = new ListDataProvider<String>();
-		dataProvider.addDataDisplay(cellList);
-
-		final SingleSelectionModel<String> selectionModel = new SingleSelectionModel<String>();
-		cellList.setSelectionModel(selectionModel);
-		selectionModel.addSelectionChangeHandler(new SelectionChangeEvent.Handler() {
-			public void onSelectionChange(SelectionChangeEvent event) {
-				String selected = selectionModel.getSelectedObject();
-				if (selected != null) {
-					tabPanel.selectTab(outputPanel);
-				}
-			}
-		});
-
-		List<String> dataList = dataProvider.getList();
-		for (int i = 0; i < 10; i++) {
-			dataList.add("function0" + i);
-		}
-	}
-
-	private void initDataPanel() {
-		CellList<String> cellList = new CellList<String>(new TextCell(), GWT.<DataCellListResources> create(DataCellListResources.class));
-		dataPanel.setWidget(cellList);
-
-		final ListDataProvider<String> dataProvider = new ListDataProvider<String>();
-		dataProvider.addDataDisplay(cellList);
-
-		final SingleSelectionModel<String> selectionModel = new SingleSelectionModel<String>();
-		cellList.setSelectionModel(selectionModel);
-		selectionModel.addSelectionChangeHandler(new SelectionChangeEvent.Handler() {
-			public void onSelectionChange(SelectionChangeEvent event) {
-				String selected = selectionModel.getSelectedObject();
-				if (selected != null) {
-					tabPanel.selectTab(functionPanel);
-				}
-			}
-		});
-
-		List<String> dataList = dataProvider.getList();
-		for (int i = 0; i < 10; i++) {
-			dataList.add("data0" + i);
-		}
 	}
 }
 

@@ -5,15 +5,33 @@
 		barHeight='3'>
 		<g:tab>
 			<g:customHeader size='7'>
+				<g:Label>Project</g:Label>
+			</g:customHeader>
+			<g:SimpleLayoutPanel ui:field="projectPanel" />
+		</g:tab>
+		<g:tab>
+			<g:customHeader size='7'>
 				<g:Label>Data</g:Label>
 			</g:customHeader>
 			<g:SimpleLayoutPanel ui:field="dataPanel" />
 		</g:tab>
 		<g:tab>
 			<g:customHeader size='7'>
-				<g:Label>Functions</g:Label>
+				<g:Label>Model</g:Label>
 			</g:customHeader>
-			<g:SimpleLayoutPanel ui:field="functionPanel" />
+			<g:SimpleLayoutPanel ui:field="modelPanel" />
+		</g:tab>
+		<g:tab>
+			<g:customHeader size='7'>
+				<g:Label>Graph</g:Label>
+			</g:customHeader>
+			<g:SimpleLayoutPanel ui:field="graphPanel" />
+		</g:tab>		
+		<g:tab>
+			<g:customHeader size='7'>
+				<g:Label>Table</g:Label>
+			</g:customHeader>
+			<g:SimpleLayoutPanel ui:field="tablePanel" />
 		</g:tab>
 		<g:tab>
 			<g:customHeader size='7'>
